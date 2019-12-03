@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Municipios</title>
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+
+
+<style>
+	.color01 { background-color:#96ba2a}
+	.color01a { background-color:#92a228}
+	.color02 { background-color: #fec963}
+	.color02a { background-color: #f6b337}
+	.color03 { background-color: #fc9139}
+	.color03a { background-color: #f77822}
+	.color04 { background-color: #0e547f}
+	.color04a { background-color: #114265}
+	.color05 { background-color: #e14a59}
+	.color05a { background-color: #c62334}
+	.color06 { background-color:#89143f }
+	.color06a { background-color:#7a042d}
+	
+	.lineaDiv {height: 6px; margin-bottom: 32px; margin-top: 6px}
+	
+	.txtBarra { color: #fff; text-transform: uppercase; float: left; font-weight: bold; margin-left: 12px; line-height:35px}
+	
+	.arrow { background-image:url(img/arrow); background-repeat: no-repeat; background-position: 2px 2px}
+	
+	.contInterno { color: #375b64; padding: 6px}
+	.contInterno ul { padding-left:0px; list-style: none!important}
+	.contInterno ul li { line-height:28px }
+	
+	.titIntendente { font-weight: bold; border-bottom: 1px dashed #375b64; text-transform: uppercase}
+	
+	
+	.listaInterna { list-style: none!important; padding-left: 0px}
+	.listaInterna li { border-bottom: 1px dashed #e0e0e0; padding-bottom: 6px; margin-bottom: 6px; color: #375b64!important}
+	
+	.icoSi { color:#89a97c }
+	.icoNo { color:#822929}
+	
+	.acTit {padding: 0.25rem!important; text-transform: uppercase; border: none!important; background-color: #ececec}
+	.buttonTit {color: #375b64!important; text-transform: uppercase}
+			
+</style>
+
+</head>
+
+<body>
+
+
+
+<div class="col-12" style="background-color: #7799a2; color: #fff; font-size: 1.6rem; text-transform: uppercase; padding: 10px 8px; margin-top: 28px">
+	Nombre del municipio
+</div>
+<div class="col-12" style="padding:8px 8px; font-size: .75rem; background-color: #d2dcde; margin-top: 2px; color: #375b64">Provincia de </div>
+
+
+<div class="row" style="margin-top: 28px">
+<div class="col-3" style="height: 100px">
+
+	<div class="color01" style="display: block; overflow:auto">
+		<div class="color01a arrow" style="height:35px; width: 35px; float: left"></div>
+		<span class="txtBarra">Ubicación geográfica</span>
+	</div>
+	<div class="row">
+		<iframe  class="col-12" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d54338.98332839815!2d-64.47702110748416!3d-31.6561181190284!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x942d574ade89939b%3A0x5290b7919d5d43fd!2sAlta+Gracia%2C+C%C3%B3rdoba!5e0!3m2!1ses-419!2sar!4v1535717424679"  height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+	</div>
+	
+	<div class="color01 lineaDiv"></div>
+	
+	
+	<div class="color02" style="display: block; overflow:auto">
+		<div class="color02a arrow d-none d-md-block d-lg-block" style="height:35px; width: 35px; float: left"></div>
+		<span class="txtBarra">Datos demográficos</span>
+	</div>
+	<div class="contInterno">
+		<ul>
+			<li>Habitantes: <strong>xxxxx</strong> </li>
+			<li>Varones: <strong>xxxxx</strong> </li>
+			<li>Mujeres: <strong>xxxxx</strong> </li>
+			<li>Indice: <strong>xxxxx</strong></li>
+			<li>Año: <strong>xxxxx </strong></li>
+			<li>Fuente: <strong>xxxxxx </strong></li>
+		</ul>
+	</div>
+	
+	<div class="color02 lineaDiv"></div>
+
+<div>
+	
+</div>
+
+
+
+
+</div>
+
+
+
+<div class="col-9">
+<div class="row">
+	<div class="col-6" style=" height: 100px">
+		
+		<div class="color03" style="display: block; overflow:auto">
+		<div class="color03a arrow d-none d-md-block d-lg-block" style="height:35px; width: 35px; float: left"></div>
+		<span class="txtBarra">Gobernanza</span>
+		</div>
+		
+		<div class="contInterno">
+			<p class="titIntendente">Intendente</p>
+			
+			<ul>
+				<li>Cargo político: <strong>xxxxxx</strong></li>
+				<li>Partido político: <strong>xxxxxx</strong></li>
+			</ul>
+			
+		</div>
+		
+		<div class="color03 lineaDiv"></div>
+		
+		
+		
+		
+		<div class="color04" style="display: block; overflow:auto">
+		<div class="color04a arrow d-none d-md-block d-lg-block" style="height:35px; width: 35px; float: left"></div>
+		<span class="txtBarra">Diagnóstico Municipal</span>
+		</div>
+		
+	
+
+
+<div class="accordion" id="accordionExample" style="margin-top: 12px">
+  <div class="card">
+    <div class="card-header acTit" id="headingOne" >
+      <h5 class="mb-0">
+        <button class="btn btn-link buttonTit" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" >
+          Educación
+        </button>
+      </h5>
+    </div>
+
+    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+      <div class="card-body">
+        	<ul class="listaInterna">
+        		<li><span class="fas fa-check icoSi"></span> Jardines</li>
+        		<li><span class="fas fa-times icoNo"></span> Escuela primaria</li>
+        		<li><span class="fas fa-check icoSi"></span> Escuela secundaria</li>
+        		<li><span class="fas fa-check icoSi"></span> Bibliotecas</li>
+        		<li><span class="fas fa-check icoSi"></span> Escuela de Educación Especial</li>
+        		<li><span class="fas fa-check icoSi"></span> Centro Educativo</li>
+        		<li><span class="fas fa-check icoSi"></span> Dirección General de Educación</li>
+        	</ul>
+      </div>       
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header acTit" id="headingOne" >
+      <h5 class="mb-0">
+        <button class="btn btn-link buttonTit" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" >
+          Salud
+        </button>
+      </h5>
+    </div>
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+      <div class="card-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header acTit" id="headingOne" >
+      <h5 class="mb-0">
+        <button class="btn btn-link buttonTit" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" >
+          Seguridad
+        </button>
+      </h5>
+    </div>
+    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+      <div class="card-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header acTit" id="headingOne" >
+      <h5 class="mb-0">
+        <button class="btn btn-link buttonTit" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" >
+          Transporte
+        </button>
+      </h5>
+    </div>
+    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+      <div class="card-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header acTit" id="headingOne" >
+      <h5 class="mb-0">
+        <button class="btn btn-link buttonTit" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" >
+          Edificios Gubernamentales
+        </button>
+      </h5>
+    </div>
+    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+      <div class="card-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header acTit" id="headingOne" >
+      <h5 class="mb-0">
+        <button class="btn btn-link buttonTit" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" >
+          Espacio Urbano
+        </button>
+      </h5>
+    </div>
+    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+      <div class="card-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header acTit" id="headingOne" >
+      <h5 class="mb-0">
+        <button class="btn btn-link buttonTit" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" >
+          Puntos Digitales
+        </button>
+      </h5>
+    </div>
+    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+      <div class="card-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+      </div>
+    </div>
+  </div>
+  
+</div>
+
+
+		
+		
+		<div class="color04 lineaDiv"></div>
+		
+	</div>
+	
+	<div class="col-6" style=" height: 100px">
+		
+		<div class="color05" style="display: block; overflow:auto">
+		<div class="color05a arrow d-none d-md-block d-lg-block" style="height:35px; width: 35px; float: left"></div>
+		<span class="txtBarra">Información del Municipio</span>
+		</div>
+		
+		<div class="contInterno">
+		<ul>
+			<li>Dirección: <strong>Belgrano 15 - ALTA GRACIA</strong></li>
+			<li>Código Postal <strong>5186</strong></li>
+			<li><strong>http://www.altagracia.gov.ar/</strong></li>
+			<li>intendencia@altagracia.gov.ar</li>
+			<li>Tel/Fax <strong>03547 42-8133</strong> </li>
+			<li>Secretaría de Gobierno <strong>03547 42-8132</strong> </li>
+			<li>Directo Intendente <strong>03547 42-9303</strong> </li>
+			<li>Contaduría <strong>03547 42-8153</strong> </li>
+			<li>Secretaria Privada <strong>03547 42-8130 </strong></li>
+		</ul>
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		</div>
+		
+		<div class="color05 lineaDiv"></div>
+		
+		
+		<div class="color06" style="display: block; overflow:auto">
+		<div class="color06a arrow d-none d-md-block d-lg-block" style="height:35px; width: 35px; float: left"></div>
+		<span class="txtBarra">Lorem ipsum</span>
+		</div>
+		
+		<div class="color06 lineaDiv"></div>
+		
+	</div>
+	
+</div>	
+</div>
+</div>
+
+
+
+<script src="js/bootstrap.min.js" type="application/javascript"></script>
+
+</body>
+</html>

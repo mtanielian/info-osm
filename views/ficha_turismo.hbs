@@ -1,0 +1,418 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Municipios</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/leaflet.js"></script>
+<link href="/css/bootstrap.min.css" rel="stylesheet">
+<link href="/css/leaflet.css" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+
+<style>
+	body { font-size:0.9rem}
+	.color01 { background-color:#96ba2a}
+	.color01a { background-color:#92a228}
+	.color02 { background-color: #fec963}
+	.color02a { background-color: #f6b337}
+	.color03 { background-color: #fc9139}
+	.color03a { background-color: #f77822}
+	.color04 { background-color: #0e547f}
+	.color04a { background-color: #114265}
+	.color05 { background-color: #e14a59}
+	.color05a { background-color: #c62334}
+	.color06 { background-color:#89143f }
+	.color06a { background-color:#7a042d}
+	.colorEV {background-color:#28a745}
+	.btn-link { text-transform: uppercase}
+	
+	.lineaDiv {height: 6px; margin-bottom: 32px; margin-top: 6px}
+	
+	.txtBarra { color: #fff; text-transform: uppercase; float: left; font-weight: bold; margin-left: 12px; line-height:35px}
+	
+	.arrow { background-image:url(/img/arrow); background-repeat: no-repeat; background-position: 2px 2px}
+	
+	.contInterno { color: #375b64; padding: 6px}
+	.contInterno ul { padding-left:0px; list-style: none!important}
+	.contInterno ul li { line-height:28px }
+	
+	.titIntendente { font-weight: bold; border-bottom: 1px dashed #375b64; text-transform: uppercase; color: #828282}
+	
+	
+	.listaInterna { list-style: none!important; padding-left: 0px}
+	.listaInterna li { border-bottom: 1px dashed #e0e0e0; padding-bottom: 6px; margin-bottom: 6px; color: #375b64!important}
+	
+	.icoSi { color:#89a97c }
+	.icoNo { color:#822929}
+	
+	.acTit {padding: 0.25rem!important; text-transform: uppercase; border: none!important; background-color: #ececec}
+	.buttonTit {color: #375b64!important; text-transform: uppercase}
+			
+</style>
+
+
+</head>
+
+<body>
+
+
+
+<div class="col-12" style="background-color: #7799a2; color: #fff; font-size: 1.6rem; text-transform: uppercase; padding: 10px 8px;">
+	{{aFichaMunicipio.aNombresMunicipio.municipio}} - Provincia de {{aFichaMunicipio.aNombresMunicipio.provincia}}
+</div>
+
+
+<div class="alert alert-primary alert-dismissible fade show" role="alert"
+
+		style="cursor:pointer;"
+        aria-hidden="true"	data-toggle="collapse" 
+		data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"
+>
+	<i 
+		class="fa fa-info-circle" 
+	></i>
+	<strong>Información importante sobre los Datos</strong>! 
+
+	<div class="collapse" id="collapseExample" style="margin-top:15px">
+		<div class="card card-body">
+			<p style="margin: 0px">La información de ésta página es obtenida del sitio <a href="https://www.openstreetmap.org/" target="_blank">OpenStreetMaps</a>. </p>
+			<p style="margin: 0px">En caso de encontrar algún error u omisión, puede ser corregido utilizando la <a href="https://www.openstreetmap.org/edit" target="_blank">herramienta de edición de OpenStreetMaps ID </a> </p>
+			<p style="margin: 0px">Si requiere ayuda, podrá encontrar más información en el sitio de <a href="https://wiki.openstreetmap.org/wiki/ES:Gu%C3%ADa_de_principiantes" target="_blank">OpenStreetMaps en Español </a></p>
+			<p style="margin: 0px">Agradecemos a la comunidad de <a href="https://wiki.openstreetmap.org/wiki/ES:Wikiproyecto_Argentina">OpenStreetMaps de Argentina</a> por los aportes diarios realizados en la plataforma que ayudan a construir el mapa digital de la República Argentina.</p>
+			<p style="margin: 0px">La información procedente del mapa se actualiza cada 24 hs.</p>
+		</div>
+	</div>
+
+
+</div>
+
+<div class="row" style="margin-top: 28px; margin-right:0px; margin-left:0px">
+	<div class="col-md-6 col-12">
+		<div class="color01" style="display: block; overflow:auto">
+			<div class="color01a arrow" style="height:35px; width: 35px; float: left"></div>
+			<span class="txtBarra">Ubicación geográfica</span>
+		</div>
+		<div class="col-12" style="height:450px" id="map">
+		</div>
+	
+		<div class="color01 lineaDiv"></div>
+		
+
+	</div>
+
+	<div class="col-md-6  col-12">
+		<div>
+			<div class="" style="">
+			    <div class="color04" style="display: block; overflow:auto">
+                    <div class="color04a arrow d-none d-md-block d-lg-block" style="height:35px; width: 35px; float: left"></div>
+                    <span class="txtBarra">Diagnóstico Municipal</span>
+                </div>        
+                <div class="accordion" id="accordionPlaces" style="margin-top:15px">
+                </div>            
+                <div class="color04 lineaDiv"></div>			
+            </div>			
+		</div>	
+	</div>
+
+	{{#if aFichaMunicipio.aInfoMunicipio}}	
+    <div class="col-md-4 col-12" style="">
+       <div class="color05" style="display: block; overflow:auto">
+            <div class="color05a arrow d-none d-md-block d-lg-block" style="height:35px; width: 35px; float: left"></div>
+            <span class="txtBarra">Información del Municipio</span>
+        </div>
+				
+        <div class="contInterno">
+            <ul>
+                {{#each aFichaMunicipio.aInfoMunicipio}}
+                    {{#each this}}
+                        <li>{{nombre}}: <strong>{{item}} {{#if descripcion}} / {{descripcion}} {{/if}}</strong></li>
+                    {{/each}}
+                {{/each}}
+            </ul>
+        </div>
+				
+        <div class="color05 lineaDiv"></div>			
+    </div>
+    {{/if}}
+
+
+
+
+	
+</div>
+
+<script src="/js/bootstrap.min.js" type="application/javascript"></script>
+
+</body>
+</html>
+
+<script>
+var aPlaces = {{{json aTourism}}};
+var aFoodAndReligion = {{{json aFoodAndReligion}}};
+
+
+aPlaces = {Turismo : aPlaces, "Restaurantes" : aFoodAndReligion};
+
+var aMunicipioAreas = {{{json aMunicipioAreas}}};
+
+var $accordion = $("#accordionPlaces");
+
+var map;
+var marker;
+
+var aLabels = {
+	"aEducacion" : "Educación",
+	"aSalud" : "Salud",
+	"aSeguridad" : "Seguridad",
+	"aBancario" : "Bancos / Cajeros",
+	"aTurismo" : "Turismo",
+	"aGob" : "Edificios Gubernamentales",
+	"aEspacioUrbano" : "Espacio Urbano",
+	"aTransporteVial" : "Transporte Vial"
+}
+
+var aLabelsPlaces = {
+	"LIBRARY" : "Biblioteca",
+	"KINDERGARTEN" : "Inicial (0-5 años)",
+	"SCHOOL" : "Primaria-Secundaria (6-18 años)",
+	"COLLAGE" : "Terciario, Superior no Universitario",
+	"UNIVERSITY" : "Universitario",
+	"CLINIC" : "Clinica",
+	"DENTIST" : "Dentista",
+	"DOCTORS" : "Doctor",
+	"HOSPITAL" : "Hospital",
+	"PHARMACY" : "Farmacia",
+	"VETERINARY" : "Veterinaria",
+	"FIRE_STATION" : "Estacion de bomberos",
+	"POLICE" : "Policia",
+	"ATM" : "Cajero",
+	"BANK" : "Banco",
+	"HOTEL" : "Hotel",
+	"THEATRE" : "Teatro",
+	"MUSEUM" : "Museo",
+	"GOVERNMENT" : "Edificio Gubernamental",
+	"POST_OFFICE" : "Oficina Postal",
+	"TOWNHALL" : "Ayuntamiento",
+	"PARK" : "Parque",
+	"POSTCODE" : "CP",
+	"HOUSENUMBER" : "Numero",
+	"CITY" : "Cuidad",
+	"STREET" : "Calle",
+	"FUEL" : "Estacion de Servicio"
+}
+
+const getAddr = (addr) => {
+	aAddr = [];
+	if (addr) {
+		a = addr.replace(/&quot;/g, "").replace(/&gt;/g, "");
+		arr = a.split(",");
+		aAddr = arr.map((e) => {
+			x = e.split("=");
+			return {"lbl" : x[0], "value" : x[1]};
+		});
+	}
+	return aAddr;
+}
+
+function getHtmlMarker(place, indice, amenity) {
+
+
+	let html = ``;
+	let aAddr = getAddr(aPlaces[place][amenity][indice].addr);
+	
+	let idOSM = aPlaces[place][amenity][indice].id;
+	let origen = aPlaces[place][amenity][indice].origen;
+	//let amenity = aPlaces[place][amenity][indice].amenity;
+	let nombre = aPlaces[place][amenity][indice].nombre;
+	let atm = aPlaces[place][amenity][indice].atm;
+	let network = aPlaces[place][amenity][indice].network;
+	let phone = aPlaces[place][amenity][indice].phone;
+	let website = aPlaces[place][amenity][indice].website;
+	let aLbl = {
+		street : "Calle",
+		housenumber : "Numero",
+		city : "Ciudad",
+	}
+	
+	
+	if (nombre)
+		html += `
+			<div style="text-align:center; margin-bottom:10px;">
+				<b>${nombre}</b>
+			</div>
+		`;
+	
+	if (!nombre && amenity)
+		html += `
+			<div style="text-align:center; margin-bottom:10px;">
+				<b>${amenity}</b>
+			</div>
+		`;
+
+	if (atm)
+		html += `
+			<div><b>Cajero</b>: ${atm || "no posee"}</div>
+		`;
+
+	if (network)
+		html += `
+			<div><b>Operador</b>: ${network}</div>
+		`;
+	
+	if (phone)
+		html += `
+			<div><b>Teléfono</b>: ${phone}</div>
+		`;
+	
+	if (website)
+		html += `
+			<div><b>Web</b>: ${website}</div>
+		`;
+	
+	aAddr.forEach((e) => {
+		html += `<div><b>${aLabelsPlaces[e.lbl.trim().toUpperCase()]}</b>: ${e.value}</div>`;
+	});
+
+	html += `
+		<div style="text-align:center; margin-bottom:10px;">
+			<a href="https://www.openstreetmap.org/${origen}/${idOSM}" target="_blank"><b>Ver en OpenStreetMaps</b></a>
+		</div>
+	`;
+
+	return html;
+}
+
+
+
+$(function(){
+
+/*
+		argenmap = L.tileLayer('http://wms.ign.gob.ar/geoserver/gwc/service/tms/1.0.0/capabaseargenmap@EPSG%3A3857@png/{z}/{x}/{y}.png', {
+			tms: true,
+			maxZoom: 15,
+			attribution: 'Mapa del <a href="http://www.ign.gob.ar">Instituto Geográfico Nacional</a>, ' +
+				'capa de calles por colaboradores de &copy; <a href="http://openstreetmap.org">OpenStreetMap</a>'
+		});
+*/
+		argenmap = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+                attribution : '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
+                noWrap      : true
+		});
+
+		//Construye el mapa
+		map = L.map('map', {
+		    center: [-40, -59],
+		    zoom: 8,
+		    layers:[argenmap]
+		});
+
+		coords = aMunicipioAreas[0].centrado.replace("POINT(", "").replace(")", "").split(" ");
+		marker = L.marker(
+			[coords[1], coords[0]]
+		).addTo(map);
+
+		map.setView(new L.LatLng(coords[1], coords[0]), 12);
+});
+
+let sumaPlaces = (plc) => {
+	suma = 0;
+	
+	for (i in plc) {
+		suma = suma + plc[i].length;
+	}
+	return suma;
+}
+
+let drawPlaces = (aPlaces, place, amenity) => {
+	$divPlace = "";
+	for (i in aPlaces) {
+		$divPlace += `
+			<div
+				data-marker="${aPlaces[i].centrado}"
+				data-place="${place}"
+				data-amenity="${amenity}"
+				data-indice="${i}"
+				style="
+					cursor:pointer;
+					border-bottom: 1px dashed #e0e0e0;
+    				padding-bottom: 6px;
+    				margin-bottom: 6px;
+    				color: #375b64!important;
+				"
+			>${aPlaces[i].nombre || "Sin nombre"}</div>
+		`; 
+	}
+	return $divPlace;
+}
+
+$(function() {
+if (aPlaces) {
+	for (place in aPlaces) {
+		$card = $('<div class="card">');		
+		$divTitulo = `
+			<div class="card-header" id="headingOne" style="padding:0px">
+				<h5 class="mb-0">
+					<button style="text-decoration: none !IMPORTANT;" class="btn btn-link" type="button" data-toggle="collapse" data-target="#${place}" aria-expanded="true" aria-controls="${place}">
+						${place} - (${sumaPlaces(aPlaces[place])})
+					</button>
+				</h5>
+			</div>
+		`;
+
+		$divContentList = $("<div id='"+place+"'>").css({
+			"overflow-y" : "scroll",
+			"max-height" : "300px"	
+		}).addClass("collapse");
+		
+		$divContenido = "";
+		for (i in aPlaces[place]) {		
+			amenity = i;
+			
+			$divContenido += `
+				<div aria-labelledby="headingOne" data-parent="#${place}"
+					data-toggle="collapse" data-target="#${amenity}" 
+					aria-expanded="true" aria-controls="${amenity}"
+				>
+					<div class="titIntendente" style="font-size:12px; padding:0.45em; cursor:pointer">
+						${aLabelsPlaces[amenity.toUpperCase()] || amenity} 
+						<span style="float:right">(${aPlaces[place][i].length})</span>
+					</div>
+					<div style="margin:15px;" class="collapse" id="${amenity}">
+						${drawPlaces(aPlaces[place][i], place, amenity)}
+					</div>
+				</div>
+			`;
+		}
+
+		$accordion.append($card.append($divTitulo).append($divContentList.append($divContenido)));
+	}
+
+
+	$("div[data-marker]").click(function(e) {
+		coords = $(this).data("marker").replace("POINT(","").replace(")", "").split(" ");
+		place = $(this).data("place");
+		indice = $(this).data("indice");
+		amenity = $(this).data("amenity");
+
+console.log(place, amenity, indice);
+
+    	map.removeLayer(marker);
+		
+			debugger;
+		marker = L.marker(
+			[coords[1], coords[0]]
+		).addTo(map).bindPopup(
+			getHtmlMarker(place, indice, amenity)
+		).openPopup();
+		
+		map.setView(new L.LatLng(coords[1], coords[0]), 16);
+		return false;
+		
+	})
+}
+
+});
+</script>
+
